@@ -32,66 +32,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 };
 
-/* Macro Sets */
-bool process_record_user(uint16_t keycode, keyrecord_t *record)
-{
-  if (record->event.pressed)
-  {
-    switch(keycode)
-    {
-      case M_01 : /* BRACKET () */
-        SEND_STRING( SS_DOWN(X_LSFT)  SS_TAP(X_9)  SS_TAP(X_0)  SS_UP(X_LSFT)  SS_TAP(X_LEFT) );
-        return false;
-      break;
-      case M_02 : /* BRACKET [] */
-        SEND_STRING( SS_TAP(X_LBRC)  SS_TAP(X_RBRC)  SS_TAP(X_LEFT) );
-        return false;
-      break;
-      case M_03 : /* HYPHEN - */
-        SEND_STRING(" - ");
-        return false;
-      break;
-      case M_04 : /* Copy Name */
-        SEND_STRING( SS_TAP(X_F2)  SS_DOWN(X_LCTL)  SS_TAP(X_C)  SS_UP(X_LCTL)  SS_TAP(X_ESC) );
-        return false;
-      break;
-      case M_05 : /* Paste Name */
-        SEND_STRING( SS_TAP(X_F2)  SS_DOWN(X_LCTL)  SS_TAP(X_V)  SS_UP(X_LCTL)  SS_TAP(X_ENT) );
-        return false;
-      break;
-      case M_06 : /* EXCEL Input Value */
-        SEND_STRING( SS_DOWN(X_LCTL)  SS_DOWN(X_LALT)  SS_TAP(X_V)  SS_UP(X_LALT)  SS_UP(X_LCTL)  SS_DELAY(100)  SS_TAP(X_V)  SS_TAP(X_ENT) );
-        return false;
-      break;
-      case M_07 : /* Save as */
-        SEND_STRING( SS_DOWN(X_LCTL)  SS_DOWN(X_LSFT)  SS_TAP(X_S)  SS_UP(X_LSFT)  SS_UP(X_LCTL) );
-        return false;
-      break;
-      case M_08 : /* Add _n */
-        SEND_STRING( SS_TAP(X_RGHT)  "_n" );
-        return false;
-      break;
-      case M_09 : /* Add _m */
-        SEND_STRING( SS_TAP(X_RGHT)  "_m" );
-        return false;
-      break;
-      case M_10 : /* Pass 1 */
-        SEND_STRING("htk");
-        return false;
-      break;
-      case M_11 : /* Pass 2 */
-        SEND_STRING("glxkcl1qlqjs");
-        return false;
-      break;
-      case M_12 : /* Pass 3 */
-        SEND_STRING("Glxkclql1qjs");
-        return false;
-      break;                     
-    }
-  }
-  return true;
-};
-
 /* OLED */
 #define ANIM_SIZE 512
 
